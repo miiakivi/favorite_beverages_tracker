@@ -43,10 +43,10 @@ function App () {
 
   return (
     <div className = "App">
-      <div className = "wrapper">
-        <header>
-          <h1>My Favorite Beverages ☕️</h1>
-        </header>
+      <header>
+        <h1>My Favorite Beverages ☕️</h1>
+      </header>
+      <div className = "content">
         <div className = "content-container">
           <div className = "form-container">
             <h2>Add beverage</h2>

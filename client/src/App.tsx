@@ -1,11 +1,41 @@
-import React from "react";
-import "./App.css";
+import React, { useEffect, useState } from "react";
+
 import BeverageForm from "./components/BeverageForm";
 import BeverageTable from "./components/BeverageTable";
 
-import { BeverageType } from "./types/BeverageTypes";
+import { fetchBeverages } from "./api/fetchFunctions";
+
+import { Beverage, BeverageType } from "./types/BeverageTypes";
+import "./App.css";
 
 function App () {
+
+  const [ beverages, setBeverages ] = useState<Beverage[]>( [] );
+  const [ coffeeBeverages, setCoffeeBeverages ] = useState<Beverage[]>( [] );
+
+  const [ teaBeverages, setTeaBeverages ] = useState<Beverage[]>( [] );
+
+  // Fetch beverages from server when loaded first time
+  useEffect( () => {
+    const fetchChannelNamesOnFirstLoad = async () => {
+      try {
+        const fetchedBeverages = await fetchBeverages();
+        separateTypesFromArray( fetchedBeverages );
+        setBeverages( fetchedBeverages );
+      } catch ( error ) {
+        console.error( "error happened when fetching channel names from remote", error );
+      }
+    };
+    fetchChannelNamesOnFirstLoad();
+  }, [] );
+
+
+  const separateTypesFromArray = ( arr: Beverage[] ) => {
+    const coffee = arr.filter( item => item.type === BeverageType.Coffee );
+    const tea = arr.filter( item => item.type === BeverageType.Tea );
+    setCoffeeBeverages( coffee );
+    setTeaBeverages( tea );
+  };
 
   const submitingNewBeverage = () => {
     console.log( "new beverage" );
@@ -22,12 +52,16 @@ function App () {
             <h2>Add beverage</h2>
             <BeverageForm onSubmit = {submitingNewBeverage}></BeverageForm>
           </div>
-
-          <BeverageTable beverageType = {BeverageType.Coffee}/>
-          <BeverageTable beverageType = {BeverageType.Tea}/>
+          <div className = "flex-container">
+            <div className = "flex-child-large">
+              <BeverageTable beverages = {coffeeBeverages} beverageType = {BeverageType.Coffee}/>
+            </div>
+            <div className = "flex-child">
+              <BeverageTable beverages = {teaBeverages} beverageType = {BeverageType.Tea}/>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
   );
 }

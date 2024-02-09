@@ -8,6 +8,13 @@ import { fetchBeverages } from "./api/fetchFunctions";
 import { Beverage, BeverageType } from "./types/BeverageTypes";
 import "./App.css";
 
+// TODO Post new beverage to server
+// TODO Show loading
+// TODO Show added beverage immidiatly in the right table
+// TODO styles to form
+// TODO Form validating
+
+
 const App: React.FC = () => {
 
   const [ beverages, setBeverages ] = useState<Beverage[]>( [] );

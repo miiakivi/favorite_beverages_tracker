@@ -14,3 +14,25 @@ export const fetchBeverages = async (): Promise<Beverage[]> => {
     throw error;
   }
 };
+
+export const postNewBeverage = async ( beverage: Beverage ): Promise<void> => {
+  try {
+    const response = await fetch( `${ baseURL }/beverages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify( { text: beverage } ),
+    } );
+
+    if ( !response.ok ) {
+      throw new Error( `HTTP error! Status: ${ response.status }` );
+    }
+
+    const responseBody = await response.json();
+    console.log( "Response:", responseBody );
+  } catch ( error ) {
+    console.error( "Error when posting message:", error );
+    throw error;
+  }
+};

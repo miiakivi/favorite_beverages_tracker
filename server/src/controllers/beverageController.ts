@@ -2,7 +2,9 @@ import { Request, Response } from "express";
 import { beverageModule } from "../modules/inMemoryBeverageModule";
 import { Beverage } from "../types/Beverage";
 
-export const getAllCoffees = ( req: Request, res: Response ) => {
+export const getAllBeverages = ( req: Request, res: Response ) => {
+  res.json( beverageModule.getAllBeverages() );
+};
 
 export const postNewBeverage = ( req: Request, res: Response ) => {
   try {

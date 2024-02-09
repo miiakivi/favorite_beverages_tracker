@@ -1,16 +1,19 @@
 import React from "react";
 import "../styles/BeverageTable.css";
 
-import { BeverageType } from "../types/BeverageTypes";
+import { Beverage, BeverageType } from "../types/BeverageTypes";
 
 type TableProps = {
+  beverages: Beverage[];
   beverageType: BeverageType;
 }
 
-const BeverageTable: React.FC<TableProps> =  ( { beverageType } ) => {
+const BeverageTable: React.FC<TableProps> =  ( { beverageType, beverages } ) => {
 
   return (
     <div className = "table-container">
+      <h3>{beverageType === BeverageType.Coffee ? "Coffees" : "Teas"}</h3>
+
       <table>
         <thead>
           <tr>
@@ -18,22 +21,21 @@ const BeverageTable: React.FC<TableProps> =  ( { beverageType } ) => {
             <th>Weight</th>
             <th>Price €</th>
             {beverageType === BeverageType.Coffee && <th>Roast</th>}
-
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Coffee 1</td>
-            <td>250g</td>
-            <td>$12.99</td>
-            {beverageType === BeverageType.Coffee && <td>3</td>}
-          </tr>
-          <tr>
-            <td>Coffee 2</td>
-            <td>500g</td>
-            <td>$19.99</td>
-            {beverageType === BeverageType.Coffee && <td>3</td>}
-          </tr>
+          {beverages.map( ( beverage ) => {
+            return (
+              <>
+                <tr>
+                  <td>{beverage.name}</td>
+                  <td>{beverage.weight}g</td>
+                  <td>{beverage.price}€</td>
+                  {beverageType === BeverageType.Coffee && <td>{beverage.roast}</td>}
+                </tr>
+              </>
+            );
+          } )}
         </tbody>
       </table>
     </div>

@@ -28,24 +28,14 @@ const beverages: Beverage[] = [
     weight: 200,
     price: 2.99,
   },
-
 ];
-
 export const beverageModule = {
-  getCoffees () {
-    console.log( "coffee place", coffees );
-    return coffees;
+  getAllBeverages () {
+    return beverages;
   },
 
-  getTeas () {
-    return teas;
-  },
-
-  addTeaToDB ( newTea: Beverage ) {
-    teas.push( newTea );
-  },
-
-  addCoffeeToDB ( newCoffee: Beverage ) {
-    coffees.push( newCoffee );
+  addNewBeverage ( beverage: Beverage ) {
+    beverages.push( beverage );
+    console.log( "beverage added to DB" );
   }
 };

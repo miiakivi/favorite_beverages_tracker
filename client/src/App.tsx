@@ -8,7 +8,7 @@ import { fetchBeverages } from "./api/fetchFunctions";
 import { Beverage, BeverageType } from "./types/BeverageTypes";
 import "./App.css";
 
-function App () {
+const App: React.FC = () => {
 
   const [ beverages, setBeverages ] = useState<Beverage[]>( [] );
   const [ coffeeBeverages, setCoffeeBeverages ] = useState<Beverage[]>( [] );
@@ -64,6 +64,6 @@ function App () {
       </div>
     </div>
   );
-}
+};
 
 export default App;

@@ -4,7 +4,6 @@ import cors from "cors";
 
 import beverageRoutes from "./routes/beverageRoutes";
 
-
 const app = express();
 const port = process.env.PORT || 3000;
 const url = "http://localhost";
@@ -15,7 +14,7 @@ app.use( bodyParser.json() );
 // Use routes
 app.use( "/", beverageRoutes );
 
-
+// Start server
 app.listen( port, () => {
   console.log( `Server is running at ${ url }:${ port }` );
 } );

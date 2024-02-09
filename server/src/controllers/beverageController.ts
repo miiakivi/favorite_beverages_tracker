@@ -1,13 +1,24 @@
 import { Request, Response } from "express";
 import { beverageModule } from "../modules/inMemoryBeverageModule";
+import { Beverage } from "../types/Beverage";
 
 export const getAllCoffees = ( req: Request, res: Response ) => {
 
+export const postNewBeverage = ( req: Request, res: Response ) => {
+  try {
+    // Extract parameters
+    const { type, name, weight, price } = req.body as Beverage;
 
-  console.log( "getting coffees" );
-  res.json( beverageModule.getCoffees() );
-};
+    // Validate
+    if ( !type || !name || !weight || !price ) {
+      return res.status( 400 ).json( { error: "Missing required parameters" } );
+    }
+    // Success
+    beverageModule.addNewBeverage( req.body );
+    res.status( 201 ).json( { message: "Beverage created successfully" } );
 
-export const getAllTeas = ( req: Request, res: Response ) => {
-  res.json( beverageModule.getTeas() );
+  } catch ( error ) {
+    console.error( "Error adding beverage to db:", error );
+    res.status( 500 ).json( { error: "Internal server error" } );
+  }
 };

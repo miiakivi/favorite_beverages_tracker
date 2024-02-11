@@ -8,18 +8,10 @@ import { fetchBeverages, postNewBeverage } from "./api/fetchFunctions";
 import { Beverage, BeverageType } from "./types/BeverageTypes";
 import "./App.css";
 
-// TODO Post new beverage to server
 // TODO Show loading
-// TODO Show added beverage immidiatly in the right table
-// TODO styles to form
-// TODO Form validating
-
 
 const App: React.FC = () => {
-
-  const [ beverages, setBeverages ] = useState<Beverage[]>( [] );
   const [ coffeeBeverages, setCoffeeBeverages ] = useState<Beverage[]>( [] );
-
   const [ teaBeverages, setTeaBeverages ] = useState<Beverage[]>( [] );
 
   // Fetch beverages from server when loaded first time
@@ -30,12 +22,11 @@ const App: React.FC = () => {
         separateTypesFromArray( fetchedBeverages );
         setBeverages( fetchedBeverages );
       } catch ( error ) {
-        console.error( "error happened when fetching channel names from remote", error );
+        console.error( "Error when fetching channel names from DB", error );
       }
     };
     fetchChannelNamesOnFirstLoad();
   }, [] );
-
 
   const separateTypesFromArray = ( arr: Beverage[] ) => {
     const coffee = arr.filter( item => item.type === BeverageType.Coffee );

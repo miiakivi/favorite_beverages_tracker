@@ -36,6 +36,5 @@ export const beverageModule = {
 
   addNewBeverage ( beverage: Beverage ) {
     beverages.push( beverage );
-    console.log( "beverage added to DB" );
   }
 };

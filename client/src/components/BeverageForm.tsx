@@ -87,7 +87,7 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
       </div>
       <div className = "input-container-flex">
         <div className = "input-container">
-          <label htmlFor = "weight">Weight:</label>
+          <label htmlFor = "weight">Weight (g):</label>
           <input
             type = "number"
             id = "weight"
@@ -120,6 +120,7 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
           </div>
         ) : <></>}
 
+      </div>
       <button type = "submit">Add</button>
     </form>
   );

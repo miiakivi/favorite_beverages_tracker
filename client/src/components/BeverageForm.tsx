@@ -4,7 +4,7 @@ import "../styles/BeverageForm.css";
 import { Beverage, BeverageType } from "../types/BeverageTypes";
 
 type CoffeeFormProps = {
-  onSubmit: ( formData: { name: string; weight: number; price: number; roast: number } ) => void;
+  onSubmit: ( formData: Beverage ) => void;
 }
 
 const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
@@ -17,7 +17,8 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
 
   const handleSubmit = ( e: React.FormEvent ) => {
     e.preventDefault();
-    onSubmit( { name, weight, price, roast } );
+    onSubmit( { name, weight, price, roast, type } );
+    setToDefaultValues();
   };
 
   const handleRoastChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {
@@ -30,6 +31,15 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
   const handleBeverageTypeChange = () => {
     const newType = type === BeverageType.Coffee ? BeverageType.Tea: BeverageType.Coffee;
     setType( newType );
+  };
+
+  const setToDefaultValues = () => {
+    // Set values to default
+    setName( "" );
+    setWeight( 0 );
+    setPrice( 0 );
+    setRoast( 0 );
+    setType( BeverageType.Coffee );
   };
 
   const handleWeightChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {

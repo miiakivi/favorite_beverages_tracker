@@ -1,6 +1,6 @@
 # Favorite Beverage Tracker
 
-Welcome to the Coffee and Tea Tracker project! It allows user to store information about their favorite coffee or tea brands. Users can save details such as the name, weight in grams, price, and roasting level.
+Welcome to the Favorite Beverage Tracker project! The app allows user to store information about their favorite coffee or tea brands. Users can save details such as the name, weight in grams, price, and roasting level.
 
 It took approximately 6 hours to develop.
 

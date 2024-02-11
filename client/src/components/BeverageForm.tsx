@@ -49,6 +49,22 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
   // TODO Roast select option, not input number
   return (
     <form onSubmit = {handleSubmit}>
+      <div className = "toggle-switch">
+        <p className = "toggle-switch__label">Pick a beverage:</p>
+        <div className = "toggle-switch-container">
+          <div
+            className = {`toggle-option ${ type === BeverageType.Coffee ? "selected" : "" }`}
+            onClick = {handleBeverageTypeChange}>
+            Coffee
+          </div>
+          <div
+            className = {`toggle-option ${ type === BeverageType.Tea ? "selected" : "" }`}
+            onClick = {handleBeverageTypeChange}>
+            Tea
+          </div>
+        </div>
+      </div>
+
       <div className = "input-container">
         <label htmlFor = "name">Name:</label>
         <input

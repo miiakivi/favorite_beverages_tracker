@@ -60,7 +60,7 @@ const App: React.FC = () => {
   return (
     <div className = "App">
       <header>
-        <h1>My Favorite Beverages ☕️</h1>
+        <h1>Favorite Beverage Tracker ☕️</h1>
       </header>
       <div className = "content">
         <div className = "content-container">

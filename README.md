@@ -1,4 +1,4 @@
-# Favorite Coffee and Tea Tracker
+# Favorite Beverage Tracker
 
 Welcome to the Coffee and Tea Tracker project! It allows user to store information about their favorite coffee or tea brands. Users can save details such as the name, weight in grams, price, and roasting level.
 

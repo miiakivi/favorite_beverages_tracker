@@ -7,9 +7,11 @@ type CoffeeFormProps = {
 
 const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
   const [ name, setName ] = useState( "" );
-  const [ weight, setWeight ] = useState( 0 );
-  const [ price, setPrice ] = useState( 0 );
-  const [ roast, setRoast ] = useState( 0 );
+  const [ weight, setWeight ] = useState( 100 );
+  const [ price, setPrice ] = useState( 1 );
+  const [ roast, setRoast ] = useState( 1 );
+  const [ type, setType ] = useState<BeverageType>( BeverageType.Coffee );
+
 
   const handleSubmit = ( e: React.FormEvent ) => {
     e.preventDefault();

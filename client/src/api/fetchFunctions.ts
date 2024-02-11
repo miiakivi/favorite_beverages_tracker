@@ -15,14 +15,14 @@ export const fetchBeverages = async (): Promise<Beverage[]> => {
   }
 };
 
-export const postNewBeverage = async ( beverage: Beverage ): Promise<void> => {
+export const postNewBeverage = async ( newBeverage: Beverage ): Promise<void> => {
   try {
     const response = await fetch( `${ baseURL }/beverages`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify( { text: beverage } ),
+      body: JSON.stringify( newBeverage )
     } );
 
     if ( !response.ok ) {

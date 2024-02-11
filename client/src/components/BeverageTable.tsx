@@ -23,15 +23,14 @@ const BeverageTable: React.FC<TableProps> =  ( { beverageType, beverages } ) => 
           </tr>
         </thead>
         <tbody>
-          {beverages.map( ( beverage ) => {
+          {beverages.map( ( beverage, index ) => {
             return (
               <>
-                <tr>
+                <tr key = {index}>
                   <td>{beverage.name}</td>
                   <td>{beverage.weight}g</td>
                   {beverageType === BeverageType.Coffee && <td>{beverage.roast}</td>}
                   <td>{beverage.price}€</td>
-
                 </tr>
               </>
             );

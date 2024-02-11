@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import BeverageForm from "./components/BeverageForm";
 import BeverageTable from "./components/BeverageTable";
 
-import { fetchBeverages } from "./api/fetchFunctions";
+import { fetchBeverages, postNewBeverage } from "./api/fetchFunctions";
 
 import { Beverage, BeverageType } from "./types/BeverageTypes";
 import "./App.css";
@@ -44,8 +44,27 @@ const App: React.FC = () => {
     setTeaBeverages( tea );
   };
 
-  const submitingNewBeverage = () => {
-    console.log( "new beverage" );
+  const submitingNewBeverage = ( newBeverage: Beverage ) => {
+    // Posts new beverage to database
+    postNewBeverage( newBeverage );
+    addNewBeverageToLocal( newBeverage );
+  };
+
+
+  // Adds beverage to view
+  const addNewBeverageToLocal = ( newBeverage: Beverage ) => {
+    switch ( newBeverage.type ) {
+      case BeverageType.Coffee:
+        setCoffeeBeverages( ( prevCoffes ) => {
+          return [ newBeverage, ...prevCoffes ];
+        } );
+        return;
+      case BeverageType.Tea:
+        setTeaBeverages( ( prevTeas ) => {
+          return [ newBeverage, ...prevTeas ];
+        } );
+        return;
+    }
   };
 
   return (

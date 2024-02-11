@@ -29,6 +29,7 @@ const beverages: Beverage[] = [
     price: 2.99,
   },
 ];
+
 export const beverageModule = {
   getAllBeverages () {
     return beverages;

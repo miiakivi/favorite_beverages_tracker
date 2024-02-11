@@ -27,6 +27,26 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
     }
   };
 
+  const handleBeverageTypeChange = () => {
+    const newType = type === BeverageType.Coffee ? BeverageType.Tea: BeverageType.Coffee;
+    setType( newType );
+  };
+
+  const handleWeightChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {
+    const newWeight = parseInt( e.target.value );
+    if ( newWeight > 0 ) {
+      setWeight( newWeight );
+    }
+  };
+
+  const handlePriceChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {
+    const newPrice = parseFloat( e.target.value );
+    if ( newPrice > 0 ) {
+      setPrice( newPrice );
+    }
+  };
+
+  // TODO Roast select option, not input number
   return (
     <form onSubmit = {handleSubmit}>
       <div className = "input-container">
@@ -46,7 +66,7 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
             type = "number"
             id = "weight"
             value = {weight}
-            onChange = {( e ) => setWeight( Number( e.target.value ) )}
+            onChange = {handleWeightChange}
             required
           />
         </div>
@@ -56,7 +76,7 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
             type = "number"
             id = "price "
             value = {price}
-            onChange = {( e ) => setPrice( Number( e.target.value ) )}
+            onChange = {handlePriceChange}
             required
           />
         </div>

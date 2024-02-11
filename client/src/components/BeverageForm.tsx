@@ -60,18 +60,19 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
             required
           />
         </div>
-        <div className = "input-container">
-          <label htmlFor = "roast">Roast:</label>
-          <input
-            type = "number"
-            id = "roast"
-            value = {roast}
-            onChange = {handleRoastChange}
-            min = {1}
-            max = {5}
-          />
-        </div>
-      </div>
+        {type === BeverageType.Coffee ? (
+          <div className = "input-container">
+            <label htmlFor = "roast">Roast:</label>
+            <input
+              type = "number"
+              id = "roast"
+              value = {roast}
+              onChange = {handleRoastChange}
+              min = {1}
+              max = {5}
+            />
+          </div>
+        ) : <></>}
 
       <button type = "submit">Add</button>
     </form>

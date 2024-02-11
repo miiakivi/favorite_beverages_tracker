@@ -67,7 +67,6 @@ const App: React.FC = () => {
       <div className = "content">
         <div className = "content-container">
           <div className = "form-container">
-            <h2>Add beverage</h2>
             <BeverageForm onSubmit = {submitingNewBeverage}></BeverageForm>
           </div>
           {!loading ? (

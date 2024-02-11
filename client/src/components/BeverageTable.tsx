@@ -9,7 +9,6 @@ type TableProps = {
 }
 
 const BeverageTable: React.FC<TableProps> =  ( { beverageType, beverages } ) => {
-
   return (
     <div className = "table-container">
       <h3>{beverageType === BeverageType.Coffee ? "Coffees" : "Teas"}</h3>
@@ -25,14 +24,12 @@ const BeverageTable: React.FC<TableProps> =  ( { beverageType, beverages } ) => 
         <tbody>
           {beverages.map( ( beverage, index ) => {
             return (
-              <>
-                <tr key = {index}>
-                  <td>{beverage.name}</td>
-                  <td>{beverage.weight}g</td>
-                  {beverageType === BeverageType.Coffee && <td>{beverage.roast}</td>}
-                  <td>{beverage.price}€</td>
-                </tr>
-              </>
+              <tr key = {index}>
+                <td>{beverage.name}</td>
+                <td>{beverage.weight}g</td>
+                {beverageType === BeverageType.Coffee && <td>{beverage.roast}</td>}
+                <td>{beverage.price}€</td>
+              </tr>
             );
           } )}
         </tbody>

@@ -8,8 +8,6 @@ import { fetchBeverages, postNewBeverage } from "./api/fetchFunctions";
 import { Beverage, BeverageType } from "./types/BeverageTypes";
 import "./App.css";
 
-// TODO Show loading
-
 const App: React.FC = () => {
   const [ coffeeBeverages, setCoffeeBeverages ] = useState<Beverage[]>( [] );
   const [ teaBeverages, setTeaBeverages ] = useState<Beverage[]>( [] );
@@ -79,7 +77,6 @@ const App: React.FC = () => {
               </div>
             </div>
           ) : <p>Loading...</p>}
-
         </div>
       </div>
     </div>

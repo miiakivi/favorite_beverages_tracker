@@ -2,7 +2,6 @@ table {
   border-collapse: collapse;
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
-
 }
 
 th, td {
@@ -18,5 +17,4 @@ th {
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 1.5px;
-
 }

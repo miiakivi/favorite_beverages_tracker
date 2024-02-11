@@ -13,6 +13,7 @@ import "./App.css";
 const App: React.FC = () => {
   const [ coffeeBeverages, setCoffeeBeverages ] = useState<Beverage[]>( [] );
   const [ teaBeverages, setTeaBeverages ] = useState<Beverage[]>( [] );
+  const [ loading, setLoading ] = useState( true );
 
   // Fetch beverages from server when loaded first time
   useEffect( () => {
@@ -20,7 +21,7 @@ const App: React.FC = () => {
       try {
         const fetchedBeverages = await fetchBeverages();
         separateTypesFromArray( fetchedBeverages );
-        setBeverages( fetchedBeverages );
+        setLoading( false );
       } catch ( error ) {
         console.error( "Error when fetching channel names from DB", error );
       }
@@ -69,14 +70,17 @@ const App: React.FC = () => {
             <h2>Add beverage</h2>
             <BeverageForm onSubmit = {submitingNewBeverage}></BeverageForm>
           </div>
-          <div className = "flex-container">
-            <div className = "flex-child-large">
-              <BeverageTable beverages = {coffeeBeverages} beverageType = {BeverageType.Coffee}/>
+          {!loading ? (
+            <div className = "flex-container">
+              <div className = "flex-child-large">
+                <BeverageTable beverages = {coffeeBeverages} beverageType = {BeverageType.Coffee}/>
+              </div>
+              <div className = "flex-child">
+                <BeverageTable beverages = {teaBeverages} beverageType = {BeverageType.Tea}/>
+              </div>
             </div>
-            <div className = "flex-child">
-              <BeverageTable beverages = {teaBeverages} beverageType = {BeverageType.Tea}/>
-            </div>
-          </div>
+          ) : <p>Loading...</p>}
+
         </div>
       </div>
     </div>

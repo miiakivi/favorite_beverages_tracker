@@ -5,7 +5,7 @@ import cors from "cors";
 import beverageRoutes from "./routes/beverageRoutes";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 const url = "http://localhost";
 
 app.use( cors() );

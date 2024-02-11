@@ -1,6 +1,8 @@
 table {
   border-collapse: collapse;
   width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+
 }
 
 th, td {
@@ -15,5 +17,6 @@ th {
   background-color: var(--beige);
   font-size: 0.875rem;
   font-weight: 600;
-  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
 }

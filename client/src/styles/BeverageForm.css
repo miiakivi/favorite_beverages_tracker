@@ -1,14 +1,27 @@
 form {
-  border: 2px solid blue;
   width: 100%;
+  margin: 1.5rem 0;
 }
 
 .input-container {
   display: flex;
   flex-direction: column;
-  margin-top: 0.5rem;
   text-align: left;
+  margin-top: 0.75rem;
 }
+
+.input-container input {
+  padding: 0.5rem 0.25rem;
+  font-size: 0.875rem;
+  border: 1px solid var(--brown);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.input-container label, .toggle-switch__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
 
 @media screen and (min-width: 400px) {
   .input-container-flex {
@@ -16,7 +29,6 @@ form {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  border: 1px solid green;
   }
 }
 
@@ -24,12 +36,53 @@ form {
   flex: 1;
 }
 
+.toggle-switch {
+  text-align: left;
+}
+
+.toggle-switch-container {
+  display: flex;
+  margin-top: 0.25rem;
+}
+
+.toggle-option {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(163, 162, 162);
+  border: 1px solid var(--brown);
+  transition: background-color 0.3s ease;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.toggle-option:first-child {
+  border-right: none;
+}
+
+.toggle-option:last-child {
+  border-left: none;
+}
+
+.toggle-option.selected {
+  background-color: var(--brown);
+  color: var(--main-color-dark);
+}
+
 button {
   margin: 1.5rem 0;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   background-color: var(--accent-light);
   color: var(--main-color-light);
-  border-radius: 5px;
+  text-transform: uppercase;
   border: none;
   font-weight: 600;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.85;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

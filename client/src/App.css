@@ -1,7 +1,6 @@
 .content {
     max-width: 1000px;
-    margin: 0 auto;
-
+    margin: 0 auto 2rem;
 }
 
 .content-container {
@@ -25,11 +24,16 @@ header h1 {
 }
 
 .form-container {
-  border: 2px solid rgb(250, 29, 66);
   width: 100%;
-  max-width: 40rem;
+  max-width: 30rem;
   margin: 2rem auto;
   text-align: center;
+}
+
+.form-container h2 {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 800px) {

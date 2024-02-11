@@ -21,18 +21,6 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
     setToDefaultValues();
   };
 
-  const handleRoastChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {
-    const newRoast = parseInt( e.target.value );
-    if ( newRoast >= 1 && newRoast <= 5 ) {
-      setRoast( newRoast );
-    }
-  };
-
-  const handleBeverageTypeChange = () => {
-    const newType = type === BeverageType.Coffee ? BeverageType.Tea: BeverageType.Coffee;
-    setType( newType );
-  };
-
   const setToDefaultValues = () => {
     // Set values to default
     setName( "" );
@@ -42,6 +30,19 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
     setType( BeverageType.Coffee );
   };
 
+  const handleBeverageTypeChange = () => {
+    const newType = type === BeverageType.Coffee ? BeverageType.Tea: BeverageType.Coffee;
+    setType( newType );
+  };
+
+  const handleRoastChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {
+    const newRoast = parseInt( e.target.value );
+    if ( newRoast >= 1 && newRoast <= 5 ) {
+      setRoast( newRoast );
+    }
+  };
+
+  // TODO Fix repetition
   const handleWeightChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {
     const newWeight = parseInt( e.target.value );
     if ( newWeight > 0 ) {
@@ -119,7 +120,6 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
             />
           </div>
         ) : <></>}
-
       </div>
       <button type = "submit">Add</button>
     </form>

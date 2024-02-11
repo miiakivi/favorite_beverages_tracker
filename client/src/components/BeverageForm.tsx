@@ -58,6 +58,7 @@ const BeverageForm: React.FC<CoffeeFormProps> = ( { onSubmit } ) => {
   };
 
   // TODO Roast select option, not input number
+  // TODO Create input component, that is uses rather than repetition tsx
   return (
     <form onSubmit = {handleSubmit}>
       <div className = "toggle-switch">

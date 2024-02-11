@@ -4,6 +4,7 @@ const apiURL = "http://localhost";
 const port = 4000;
 const baseURL = `${ apiURL }:${ port }`;
 
+// Get request. Fetches beverages from remote DB
 export const fetchBeverages = async (): Promise<Beverage[]> => {
   try {
     const response = await fetch( `${ baseURL }/beverages` );
@@ -15,6 +16,8 @@ export const fetchBeverages = async (): Promise<Beverage[]> => {
   }
 };
 
+// TODO is there better way than fetch to make post requests
+// Post request. Posts new beverage to DB
 export const postNewBeverage = async ( newBeverage: Beverage ): Promise<void> => {
   try {
     const response = await fetch( `${ baseURL }/beverages`, {

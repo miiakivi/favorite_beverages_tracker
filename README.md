@@ -34,7 +34,7 @@ cd server && npm install
 Start server
 
 ```
-cd server && npm install
+npm run start
 ```
 
 ### Client
@@ -45,7 +45,7 @@ cd client && npm install
 Start client
 
 ```
-cd server && npm install
+npm run start
 ```
 
 Access the application in your web browser at http://localhost:3000.

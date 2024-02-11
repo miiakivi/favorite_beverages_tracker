@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { beverageModule } from "../modules/inMemoryBeverageModule";
-import { Beverage } from "../types/Beverage";
+import { Beverage } from "../types/BeverageTypes";
 
 export const getAllBeverages = ( req: Request, res: Response ) => {
   res.json( beverageModule.getAllBeverages() );

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../styles/BeverageForm.css";
 
+import { Beverage, BeverageType } from "../types/BeverageTypes";
+
 type CoffeeFormProps = {
   onSubmit: ( formData: { name: string; weight: number; price: number; roast: number } ) => void;
 }

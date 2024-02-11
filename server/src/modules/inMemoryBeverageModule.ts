@@ -1,4 +1,4 @@
-import { Beverage, BeverageType } from "../types/Beverage";
+import { Beverage, BeverageType } from "../types/BeverageTypes";
 
 // Local database with mock data
 const beverages: Beverage[] = [

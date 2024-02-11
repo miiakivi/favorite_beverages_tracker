@@ -7,6 +7,7 @@ export type Beverage = {
 }
 
 export enum BeverageType {
-  Coffee = 0,
-  Tea = 1,
+  Unknown = 0,
+  Coffee = 1,
+  Tea = 2,
 }
